@@ -75,7 +75,7 @@ gulp.task('nodemon', function (cb) {
  * Push build to gh-pages
  */
 gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
+  return gulp.src("public/*.html")
     .pipe(deploy())
 });
 

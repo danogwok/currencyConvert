@@ -17,6 +17,7 @@ var
   cssnano = require('cssnano'),
   browserSync = require('browser-sync'),
   nodemon = require('gulp-nodemon'),
+  deploy = require('gulp-gh-pages'),
 
   // development mode?
   devBuild = (process.env.NODE_ENV !== 'production'),
@@ -68,6 +69,14 @@ gulp.task('nodemon', function (cb) {
       browserSync.reload();
     }, 1000);
   });
+});
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
 });
 
 gulp.task('serve', ['browser-sync'], function () {

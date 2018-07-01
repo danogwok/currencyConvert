@@ -2,7 +2,23 @@
 <head>
   <title>Mobile Web Specialist</title>
 </head>
-<body>
-  Hello World@!
+<body onload="fetchCurrencies()">
+<center><h1>Hello World@!</h1></center>
+<p><h2><center>Welcome to Daniel's Currency Converter</center></h2></p>
+<center><p>Amount:  <input form="" type"text" placeholder="1" id="currency"></p></center>
+<center>
+<p>From:
+<select id="from"></select>
+To:
+<select id="to"></select>
+</p>
+</center>
+<center>
+<p><button onclick="convertCurrencies()">Convert</button></p>
+<p><div class="result"/></p>
+<p><div class="alert"/></p>
+</center>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/index.js" type="text/javascript"></script>
 </body>
 </html>

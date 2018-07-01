@@ -47,28 +47,26 @@ function convertCurrencies()
 
     //Concatenate currencies to compare with API value
     let request  =   `${from}_${to}`;
-    let api_request = {
-      q: request
-    };
+    let url = 'https://free.currencyconverterapi.com/api/v5/convert?q=' + request;
+    //console.log(url);
 
     //Fetch conversion from api
-    fetch('https://free.currencyconverterapi.com/api/v5/convert', api_request)
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log(api_request);
-      console.log(data);
+      //console.log(data.results);
       //Convert the Objects into arrays
       const currencies_list = Object.keys(data.results).map(i => data.results[i]);
-
+      //console.log(currencies_list);
       //loop through each of the currency arrays/objects then add the to drop down options
       $.each(currencies_list, function(index, val) {
-        $(".result").append (`
-          <div class="card-feel">
-                                <hr />
-             <b>${amount}</b> <b>${val.fr}</b> to <b>${val.to}</b> is:
-            <b>${numeral(amount * val.val).format('0.000')}</b>
-          </div>
-        `);
+        console.log(val);
+        $(".result").append("Hi");
+        // $(".result").append (`
+        //   <div class="card-feel">
+        //     <b>${numeral(amount * val.val).format('0.000')} in ${val.to}</b>
+        //   </div>
+        // `);
 
         //Create data Object that will be used later
         let object = {
